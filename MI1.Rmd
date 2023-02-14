@@ -1,0 +1,33 @@
+---
+title: "MI1"
+author: "Ashley Kim"
+date: "2/10/2023"
+output: html_document
+---
+```{r, include=FALSE}
+# Installing libraries
+library(tidyverse)
+library(plotly)
+library(htmltools)
+library(devtools)
+library(caret)
+library(NbClust)
+library(dplyr)
+```
+
+```{r}
+listings = read_csv("/Users/ashleykim/Documents/Y4 2022-2023/Spring 2023/DS 4002/Data/listings.csv")
+
+listings <- listings[,-c(3,4,5,7,8,11,13:18)]
+
+colnames(listings)[1] ="listing_id"
+```
+
+```{r}
+reviews = read_csv("/Users/ashleykim/Documents/Y4 2022-2023/Spring 2023/DS 4002/Data/reviews.csv")
+```
+
+```{r}
+airbnb <- merge(reviews,listings,by="listing_id")
+```
+
