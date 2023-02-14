@@ -31,3 +31,16 @@ reviews = read_csv("/Users/ashleykim/Documents/Y4 2022-2023/Spring 2023/DS 4002/
 airbnb <- merge(reviews,listings,by="listing_id")
 ```
 
+```{r}
+library(stringr)
+
+airbnb_filtered <- airbnb %>% 
+    filter(str_detect(comments, '\\b(clean|quiet|safe|spacious|responsive|comfortable|accomodating|convenient)\\b'))
+```
+
+```{r}
+write.csv(airbnb, "/Users/ashleykim/Documents/Y4 2022-2023/Spring 2023/DS 4002/Data/airbnb.csv", row.names=FALSE)
+```
+
+
+
