@@ -18,6 +18,14 @@
 | Price | Numeric (Integer) | Price for one night at each AirBNB listing |
 | Number of Reviews | Numeric (Integer) | Total number of reviews the AirBNB listing has |
 
+Neighborhoods with most Airbnb listings included in analysis (>10,000 listings): 
+1. Capitol Hill/Lincoln Park (CHLP)
+2. Union Station, Stanton Park, Kingman Park (USSPKP)
+3. Columbia Heights, Mt. Pleasant, Pleasant Plains, Park View (CHMPPPPV)
+4. Edgewood, Bloomingdales, Truxton Circle, Eckington (EBTCE)
+5. Shaw, Logan Circle (SLC)
+6. Dupont Circle, Connecticut Ave/K Street (DCCAS)
+
 ### Link to Data
 [Data](https://drive.google.com/drive/folders/1a0n-NMq7w3JVi8Uqd9f58lnLSFnOSaRh?usp=sharing)
 ### Notes about Data
