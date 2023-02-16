@@ -26,3 +26,4 @@
 
 ## References
 https://www.tidytextmining.com/index.html
+https://afit-r.github.io/tidy_text
