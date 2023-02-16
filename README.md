@@ -19,6 +19,7 @@
 | Number of Reviews | Numeric (Integer) | Total number of reviews the AirBNB listing has |
 
 ### Link to Data
+[Data] (https://drive.google.com/drive/folders/1a0n-NMq7w3JVi8Uqd9f58lnLSFnOSaRh?usp=sharing)
 ### Notes about Data
 
 ## Figures 
