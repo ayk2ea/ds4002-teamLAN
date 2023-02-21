@@ -34,6 +34,6 @@ Neighborhoods with most Airbnb listings included in analysis (>10,000 listings):
 ## Figures 
 
 ## References
-[Tidy Text Mining](https://www.tidytextmining.com/index.html)
-https://afit-r.github.io/tidy_text
+[Tidy Text Mining](https://www.tidytextmining.com/index.html)  
+[Creating Tidy Text](https://afit-r.github.io/tidy_text)  
 [AFINN Lexicon](https://search.r-project.org/CRAN/refmans/corpus/html/sentiment_afinn.html#:~:text=The%20AFINN%20lexicon%20is%20a,but%20they%20are%20excluded%20here)
