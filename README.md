@@ -5,6 +5,9 @@
 ## SRC
 ### Installing/Building the Code
 In order to conduct a sentiment analysis of Washinton, D.C. Airbnbs, a sentiment analysis using the AFINN sentiment lexicon is applied. The AFINN dataframe assigns a sentiment value to individual words between -5(most negative sentiment), and +5(most positive sentiment) (AFINN Lexicon). By unnesting text in the "comments" column of the airbnb dataset, and conducting an inner_join with the AFINN lexicon, each word in the airbnb reviews that has a match to the AFINN dictionary is assigned a sentiment score. After assigning individual words a numerical value, a sentiment score for each review is calculated in a new column in the airbnb dataframe.
+
+The following packages will need to be installed in order to build the code: tidyverse, plotly, htmltools, caret, NbClust, and dplyr.
+
 ### Code Usage
 
 ## Data
