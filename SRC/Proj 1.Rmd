@@ -1,0 +1,71 @@
+---
+title: "Proj 1"
+author: "Nina Jannatifar"
+date: "2023-02-16"
+output: html_document
+---
+### this file establishes the airbnb dataset with the sentiment values
+
+```{r, include=FALSE}
+# Installing libraries
+library(tidyverse)
+library(plotly)
+library(htmltools)
+library(caret)
+library(NbClust)
+library(dplyr)
+```
+
+```{r}
+listings = read_csv("Project1/listings.csv")
+listings <- listings[,-c(3,4,5,7,8,11,13:18)]
+colnames(listings)[1] ="listing_id"
+reviews = read_csv("Project1/reviews.csv")
+```
+
+```{r}
+airbnb <- merge(reviews,listings,by="listing_id")
+```
+
+```{r}
+# install.packages("tidytext")
+library(tidytext)
+text <- airbnb$comments
+text_df <- tibble(line = 1:310818, text = text)
+tokens <- text_df %>%
+  unnest_tokens(word, text)%>%
+  anti_join(stop_words)
+tokens
+```
+
+```{r}
+#install.packages("textdata")
+library(textdata)
+get_sentiments("afinn")
+```
+```{r}
+airbnbSentiments <- tokens %>%
+  inner_join(get_sentiments("afinn"), by = "word")
+airbnbSentiments
+```
+```{r}
+airbnb <- airbnb %>% mutate(line=row_number())
+```
+
+```{r}
+line <- aggregate(value~line,airbnbSentiments,length)
+names(line)[2] <- 'line2'
+
+sentScore <- aggregate(value~line,airbnbSentiments,sum)
+names(sentScore)[2] <- 'sentScore'
+
+sentvalues <- merge(line, sentScore)
+sentvalues <- sentvalues[, c(1, 3)]
+sentvalues
+```
+
+```{r}
+airbnbFinal = merge(x=airbnb,y=sentvalues,by="line")
+airbnbFinal
+```
+
