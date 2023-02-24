@@ -61,11 +61,19 @@ names(sentScore)[2] <- 'sentScore'
 
 sentvalues <- merge(line, sentScore)
 sentvalues <- sentvalues[, c(1, 3)]
-sentvalues
+
+sentvalues$wordCount <- table(airbnbSentiments$line)
+posVect <- airbnbSentiments %>% 
+   group_by(line) %>%
+   summarise(posWords = sum(value > 0))
+posVect
+
 ```
 
 ```{r}
 airbnbFinal = merge(x=airbnb,y=sentvalues,by="line")
+airbnbFinal = merge(x=airbnbFinal, y=posVect, by="line")
 airbnbFinal
 ```
+
 
