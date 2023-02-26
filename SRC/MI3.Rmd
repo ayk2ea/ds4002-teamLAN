@@ -25,6 +25,7 @@ library(caret)
 library(NbClust)
 library(cluster)    # clustering algorithms
 library(factoextra)
+library(gridExtra)
 ```
 
 ```{r}
@@ -163,12 +164,12 @@ k_SLC <- kmeans(clust_data_SLC, centers = 3, nstart = 25)
 k_DCCAS <- kmeans(clust_data_DCCAS, centers = 3, nstart = 25)
 
 # plots to compare
-plotCHLP <- fviz_cluster(k_CHLP, geom = "point", data = clust_data_CHLP, choose.vars = c("posWords", "sentScore")) + ggtitle("CHLP")
-plotUSSPKP <- fviz_cluster(k_USSPKP, geom = "point", data = clust_data_USSPKP, choose.vars = c("posWords", "sentScore")) + ggtitle("USSPKP")
-plotCHMPPPPV <- fviz_cluster(k_CHMPPPPV, geom = "point", data = clust_data_CHMPPPPV, choose.vars = c("posWords", "sentScore")) + ggtitle("CHMPPPPV")
-plotEBTCE <- fviz_cluster(k_EBTCE, geom = "point", data = clust_data_EBTCE, choose.vars = c("posWords", "sentScore")) + ggtitle("EBTCE")
-plotSLC <- fviz_cluster(k_SLC, geom = "point", data = clust_data_SLC, choose.vars = c("posWords", "sentScore")) + ggtitle("SLC")
-plotDCCAS <- fviz_cluster(k_DCCAS, geom = "point", data = clust_data_DCCAS, choose.vars = c("posWords", "sentScore")) + ggtitle("DCCAS")
+plotCHLP <- fviz_cluster(k_CHLP, geom = "point", data = clust_data_CHLP, choose.vars = c("posWords", "wordCount")) + ggtitle("CHLP")
+plotUSSPKP <- fviz_cluster(k_USSPKP, geom = "point", data = clust_data_USSPKP, choose.vars = c("posWords", "wordCount")) + ggtitle("USSPKP")
+plotCHMPPPPV <- fviz_cluster(k_CHMPPPPV, geom = "point", data = clust_data_CHMPPPPV, choose.vars = c("posWords", "wordCount")) + ggtitle("CHMPPPPV")
+plotEBTCE <- fviz_cluster(k_EBTCE, geom = "point", data = clust_data_EBTCE, choose.vars = c("posWords", "wordCount")) + ggtitle("EBTCE")
+plotSLC <- fviz_cluster(k_SLC, geom = "point", data = clust_data_SLC, choose.vars = c("posWords", "wordCount")) + ggtitle("SLC")
+plotDCCAS <- fviz_cluster(k_DCCAS, geom = "point", data = clust_data_DCCAS, choose.vars = c("posWords", "wordCount")) + ggtitle("DCCAS")
 
 grid.arrange(plotCHLP, plotUSSPKP, plotCHMPPPPV, plotEBTCE, plotSLC, plotDCCAS, nrow = 2)
 ```
