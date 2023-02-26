@@ -1,0 +1,175 @@
+---
+title: "MI3"
+author: "Ashley Kim"
+date: "2/21/2023"
+output: html_document
+---
+
+Code for our k-means clustering portion in addition to sentiment analysis conducted in different RMD file.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+install.packages("factoextra")
+```
+
+```{r, include=FALSE}
+# installing libraries
+library(tidyverse)
+library(plotly)
+library(htmltools)
+library(devtools)
+library(caret)
+library(NbClust)
+library(cluster)    # clustering algorithms
+library(factoextra)
+```
+
+```{r}
+airbnbCHLP <- filter(airbnbFinal,neighbourhood %in% c("Capitol Hill, Lincoln Park"))
+airbnbUSSPKP <- filter(airbnbFinal,neighbourhood %in% c("Union Station, Stanton Park, Kingman Park"))
+airbnbCHMPPPPV <- filter(airbnbFinal,neighbourhood %in% c("Columbia Heights, Mt. Pleasant, Pleasant Plains, Park View"))
+airbnbEBTCE <- filter(airbnbFinal,neighbourhood %in% c("Edgewood, Bloomingdale, Truxton Circle, Eckington"))
+airbnbSLC <- filter(airbnbFinal,neighbourhood %in% c("Shaw, Logan Circle"))
+airbnbDCCAS <- filter(airbnbFinal,neighbourhood %in% c("Dupont Circle, Connecticut Avenue/K Street"))
+
+```
+
+```{r, include=FALSE}
+# Normalizing function
+normalize <- function(x){
+ (x - min(x)) / (max(x) - min(x))
+}
+
+# Standardizing numeric variables before performing clustering
+airbnbCHLP[,c(9:11)] <- lapply(airbnbCHLP[,c(9:11)], normalize)
+airbnbUSSPKP[,c(9:11)] <- lapply(airbnbUSSPKP[,c(9:11)], normalize)
+airbnbCHMPPPPV[,c(9:11)] <- lapply(airbnbCHMPPPPV[,c(9:11)], normalize)
+airbnbEBTCE[,c(9:11)] <- lapply(airbnbEBTCE[,c(9:11)], normalize)
+airbnbSLC[,c(9:11)] <- lapply(airbnbSLC[,c(9:11)], normalize)
+airbnbDCCAS[,c(9:11)] <- lapply(airbnbDCCAS[,c(9:11)], normalize)
+```
+
+### Capitol Hill, Lincoln Park
+```{r, include=FALSE}
+# defining the columns to be clustered by sub-setting the data
+clust_data_CHLP = airbnbCHLP[, c("sentScore", "wordCount", "posWords")] 
+
+# running algorithm with 3 centers.
+set.seed(1)
+kmeans_obj_CHLP = kmeans(clust_data_CHLP, centers = 3, 
+                        algorithm = "Lloyd") # 3 centers
+
+kmeans_obj_CHLP
+
+kmeans_obj_CHLP$betweenss/kmeans_obj_CHLP$totss #.746, 74.6% of the variance between the data points is explained by the clustering
+
+head(kmeans_obj_CHLP) # viewing the results
+```
+
+### Union Station, Stanton Park, Kingman Park
+```{r, include=FALSE}
+# defining the columns to be clustered by sub-setting the data
+clust_data_USSPKP = airbnbUSSPKP[, c("sentScore", "wordCount", "posWords")] 
+
+# running algorithm with 3 centers.
+set.seed(1)
+kmeans_obj_USSPKP = kmeans(clust_data_USSPKP, centers = 3, 
+                        algorithm = "Lloyd") # 3 centers
+
+kmeans_obj_USSPKP
+
+kmeans_obj_USSPKP$betweenss/kmeans_obj_USSPKP$totss #.741, 74.1% of the variance between the data points is explained by the clustering
+
+head(kmeans_obj_USSPKP) # viewing the results
+```
+
+### Columbia Heights, Mt. Pleasant, Pleasant Plains, Park View
+```{r, include=FALSE}
+# defining the columns to be clustered by sub-setting the data
+clust_data_CHMPPPPV = airbnbCHMPPPPV[, c("sentScore", "wordCount", "posWords")] 
+
+# running algorithm with 3 centers.
+set.seed(1)
+kmeans_obj_CHMPPPPV = kmeans(clust_data_CHMPPPPV, centers = 3, 
+                        algorithm = "Lloyd") # 3 centers
+
+kmeans_obj_CHMPPPPV
+
+kmeans_obj_CHMPPPPV$betweenss/kmeans_obj_CHMPPPPV$totss #.697, 69.7% of the variance between the data points is explained by the clustering
+
+head(kmeans_obj_CHMPPPPV) # viewing the results
+```
+
+### Edgewood, Bloomingdales, Truxton Circle, Eckington
+```{r, include=FALSE}
+# defining the columns to be clustered by sub-setting the data
+clust_data_EBTCE = airbnbEBTCE[, c("sentScore", "wordCount", "posWords")] 
+
+# running algorithm with 3 centers.
+set.seed(1)
+kmeans_obj_EBTCE = kmeans(clust_data_EBTCE, centers = 3, 
+                        algorithm = "Lloyd") # 3 centers
+
+kmeans_obj_EBTCE
+
+kmeans_obj_EBTCE$betweenss/kmeans_obj_EBTCE$totss #.748, 74.8% of the variance between the data points is explained by the clustering
+
+head(kmeans_obj_EBTCE) # viewing the results
+```
+
+### Shaw, Logan Circle
+```{r, include=FALSE}
+# defining the columns to be clustered by sub-setting the data
+clust_data_SLC = airbnbSLC[, c("sentScore", "wordCount", "posWords")] 
+
+# running algorithm with 3 centers.
+set.seed(1)
+kmeans_obj_SLC = kmeans(clust_data_SLC, centers = 3, 
+                        algorithm = "Lloyd") # 3 centers
+
+kmeans_obj_SLC
+
+kmeans_obj_SLC$betweenss/kmeans_obj_SLC$totss #.742, 74.2% of the variance between the data points is explained by the clustering
+
+head(kmeans_obj_SLC) # viewing the results
+```
+
+### Dupont Circle, Connecticut Ave/K Street 
+```{r, include=FALSE}
+# defining the columns to be clustered by sub-setting the data
+clust_data_DCCAS = airbnbDCCAS[, c("sentScore", "wordCount", "posWords")] 
+
+# running algorithm with 3 centers.
+set.seed(1)
+kmeans_obj_DCCAS = kmeans(clust_data_DCCAS, centers = 3, 
+                        algorithm = "Lloyd") # 3 centers
+
+kmeans_obj_DCCAS
+
+kmeans_obj_DCCAS$betweenss/kmeans_obj_DCCAS$totss #.734, 73.4% of the variance between the data points is explained by the clustering
+
+head(kmeans_obj_DCCAS) # viewing the results
+```
+
+```{r}
+k_CHLP <-  kmeans(clust_data_CHLP, centers = 3, nstart = 25)
+k_USSPKP <- kmeans(clust_data_USSPKP, centers = 3, nstart = 25)
+k_CHMPPPPV <- kmeans(clust_data_CHMPPPPV, centers = 3, nstart = 25)
+k_EBTCE <- kmeans(clust_data_EBTCE, centers = 3, nstart = 25)
+k_SLC <- kmeans(clust_data_SLC, centers = 3, nstart = 25)
+k_DCCAS <- kmeans(clust_data_DCCAS, centers = 3, nstart = 25)
+
+# plots to compare
+plotCHLP <- fviz_cluster(k_CHLP, geom = "point", data = clust_data_CHLP, choose.vars = c("posWords", "sentScore")) + ggtitle("CHLP")
+plotUSSPKP <- fviz_cluster(k_USSPKP, geom = "point", data = clust_data_USSPKP, choose.vars = c("posWords", "sentScore")) + ggtitle("USSPKP")
+plotCHMPPPPV <- fviz_cluster(k_CHMPPPPV, geom = "point", data = clust_data_CHMPPPPV, choose.vars = c("posWords", "sentScore")) + ggtitle("CHMPPPPV")
+plotEBTCE <- fviz_cluster(k_EBTCE, geom = "point", data = clust_data_EBTCE, choose.vars = c("posWords", "sentScore")) + ggtitle("EBTCE")
+plotSLC <- fviz_cluster(k_SLC, geom = "point", data = clust_data_SLC, choose.vars = c("posWords", "sentScore")) + ggtitle("SLC")
+plotDCCAS <- fviz_cluster(k_DCCAS, geom = "point", data = clust_data_DCCAS, choose.vars = c("posWords", "sentScore")) + ggtitle("DCCAS")
+
+grid.arrange(plotCHLP, plotUSSPKP, plotCHMPPPPV, plotEBTCE, plotSLC, plotDCCAS, nrow = 2)
+```
+
