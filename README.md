@@ -9,6 +9,7 @@ In order to conduct a sentiment analysis of Washinton, D.C. Airbnbs, a sentiment
 The following packages will need to be installed in order to build the code: tidyverse, tidytext, plotly, htmltools, caret, NbClust, and dplyr.
 
 ### Code Usage
+Using the code above, found in SRC/Proj 1, run the file SRC/MI3 after downloading the following additional packages: cluster, facetoextra, caret, devtools, ggplot, and gridExtra. MI3 will use the final airbnb dataframe created in Proj 1 to conduct kmeans clustering with three clusters for each of the six neighborhoods in D.C. with the highest quantity of airbnb reviews.
 
 ## Data
 ### Data Dictionary
