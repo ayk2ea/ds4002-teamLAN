@@ -1,5 +1,5 @@
 ---
-title: "Project 1: Cleaning Data and Exploratory Plots"
+title: "MI1"
 author: "Ashley Kim"
 date: "2/10/2023"
 output: html_document
