@@ -48,6 +48,7 @@ Dataset "airbnb" was combining "listing" and "reviews", "airbnb_filtered" droppe
 
 ## References
 [AFINN Lexicon](https://search.r-project.org/CRAN/refmans/corpus/html/sentiment_afinn.html#:~:text=The%20AFINN%20lexicon%20is%20a,but%20they%20are%20excluded%20here)  
+[Airbnb Statistics & Insights](https://www.thezebra.com/resources/home/airbnb-statistics/)  
 [Clustering Reviews Case Study](https://ieeexplore.ieee.org/document/7439368)  
 [Creating Tidy Text](https://afit-r.github.io/tidy_text)  
 [D.C. Crime Rates](https://www.neighborhoodscout.com/dc/washington/crime)  
