@@ -32,10 +32,15 @@ Neighborhoods with most Airbnb listings included in analysis (>10,000 listings):
 6. Dupont Circle, Connecticut Ave/K Street (DCCAS)
 
 ### Link to Data
-[Data](https://drive.google.com/drive/folders/1a0n-NMq7w3JVi8Uqd9f58lnLSFnOSaRh?usp=sharing)
+[Data](https://drive.google.com/drive/folders/1a0n-NMq7w3JVi8Uqd9f58lnLSFnOSaRh?usp=share_link)
+
 ### Notes about Data
+Use datasets "listings" and reviews" for file Proj1.rmd for Sentiment Analysis and then utilize "airbnbFinal" dataset for file MI3.Rmd for K-Means Clustering.
+
+Dataset "airbnb" was combining "listing" and "reviews", "airbnb_filtered" dropped inessential columns from either datasets.
 
 ## Figures 
+![Elbow Plots](/Figures/ElbowPlots.png)
 
 ## References
 [Tidy Text Mining](https://www.tidytextmining.com/index.html)  
