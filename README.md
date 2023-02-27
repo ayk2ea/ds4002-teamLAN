@@ -47,10 +47,10 @@ Dataset "airbnb" was combining "listing" and "reviews", "airbnb_filtered" droppe
 | K-Means Clustering | ![K-Means Clustering](/Figures/kmeans.JPG) | Cluster plots for top 6 DC neighbourhood's with Airbnb listings > 10000, with 3 centers |
 
 ## References
-[AFINN Lexicon](https://search.r-project.org/CRAN/refmans/corpus/html/sentiment_afinn.html#:~:text=The%20AFINN%20lexicon%20is%20a,but%20they%20are%20excluded%20here)
+[AFINN Lexicon](https://search.r-project.org/CRAN/refmans/corpus/html/sentiment_afinn.html#:~:text=The%20AFINN%20lexicon%20is%20a,but%20they%20are%20excluded%20here)  
 [Clustering Reviews Case Study](https://ieeexplore.ieee.org/document/7439368)  
 [Creating Tidy Text](https://afit-r.github.io/tidy_text)  
-[D.C. Crime Rates](https://www.neighborhoodscout.com/dc/washington/crime)
+[D.C. Crime Rates](https://www.neighborhoodscout.com/dc/washington/crime)  
 [D.C. Gentrification Map](https://storymaps.arcgis.com/stories/009773cc5c224421a66d1ce9ff089849)   
 [K-Means Clustering](https://uc-r.github.io/kmeans_clustering)  
 [Word Clouds](https://towardsdatascience.com/create-a-word-cloud-with-rbde3e7422e8a)  
