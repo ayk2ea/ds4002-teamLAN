@@ -7,3 +7,6 @@ These plots are representation of the top 200 words per neighborhood which conta
 
 ## Word Proportion by Neighborhood
 This figure was created to identify whether there are any words that appear in higher proportion for a particular neighborhood. To create this figure, the top 15 words appearing across all reviews in all neighborhoods was determined (by measure of frequency). Then, the frequency of these words in reviews pertaining to our neighborhoods of interest was determined, and the proportions were consequently calculated. 
+
+## K-means
+This figure is a visualization of the k-means algorithm run using the sentiment data collected and subsetted by neighborhood. The features of interest for the clustering were Sentiment Score, Word Count, and Positive Word Count. 
