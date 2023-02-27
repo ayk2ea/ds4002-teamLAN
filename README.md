@@ -40,7 +40,11 @@ Use datasets "listings" and reviews" for file Proj1.rmd for Sentiment Analysis a
 Dataset "airbnb" was combining "listing" and "reviews", "airbnb_filtered" dropped inessential columns from either datasets.
 
 ## Figures 
-![Elbow Plots](/Figures/ElbowPlots.png)
+
+| Figure | Image | Description|
+| --- | --- | --- |
+| Elbow Plots | ![Elbow Plots](/Figures/ElbowPlots.png) | Elbow Plots are a graphical means to determine the appropriate numbers of clusters, 'k', that should be used in K-Means clustering; because the 'elbow' begins to bend around k=3, three clusters are selected for running the k-means clustering |
+| K-Means Clustering | ![K-Means Clustering](/Figures/kmeans.JPG) | Cluster plots for top 6 DC neighbourhood's with Airbnb listings > 10000, with 3 centers |
 
 ## References
 [Tidy Text Mining](https://www.tidytextmining.com/index.html)  
