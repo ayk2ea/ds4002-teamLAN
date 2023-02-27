@@ -1,4 +1,4 @@
-# ds4002-teamLAN
+# Project 1 - Team LAN 
 
 ## Repository Contents 
 
