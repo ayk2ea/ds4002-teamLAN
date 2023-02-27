@@ -35,7 +35,7 @@ Neighborhoods with most Airbnb listings included in analysis (>10,000 listings):
 [Data](https://drive.google.com/drive/folders/1a0n-NMq7w3JVi8Uqd9f58lnLSFnOSaRh?usp=share_link)
 
 ### Notes about Data
-Use datasets "listings" and reviews" for file Proj1.rmd for Sentiment Analysis and then utilize "airbnbFinal" dataset for file MI3.Rmd for K-Means Clustering.
+Use datasets "listings" and reviews" for file Proj 1.rmd for Sentiment Analysis and then utilize "airbnbFinal" dataset for file MI3.Rmd for K-Means Clustering.
 
 Dataset "airbnb" was combining "listing" and "reviews", "airbnb_filtered" dropped inessential columns from either datasets.
 
