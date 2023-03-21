@@ -32,10 +32,7 @@ Dataset "airbnb" was combining "listing" and "reviews", "airbnb_filtered" droppe
 
 | Figure | Image | Description|
 | --- | --- | --- |
-| Neighborhood Wordclouds | ![Neighborhood Word Cloud](/Figures/Neighborhood Wordclouds/CHLP Wordcloud.png) | These plots are representation of the top 200 words per neighborhood which contain sentiment value as determined by AFINN lexicon. Size is proportional to the frequency of the words in the reviews for the neighborhoods |
-| Elbow Plots | ![Elbow Plots](/Figures/ElbowPlots.png) | Elbow Plots are a graphical means to determine the appropriate numbers of clusters, 'k', that should be used in K-Means clustering; because the 'elbow' begins to bend around k=3, three clusters are selected for running the k-means clustering |
-| Word Proportion by Neighborhood | ![Word Proportion by Neighborhood](/Figures/WordProportionbyNeighborhood.png) | Identifies whether there are any words that appear in higher proportion for a particular neighborhood |
-| K-Means Clustering | ![K-Means Clustering](/Figures/kmeans.JPG) | Cluster plots for top 6 DC neighbourhood's with Airbnb listings > 10000, with 3 centers |
+
 
 ## References
 [AFINN Lexicon](https://search.r-project.org/CRAN/refmans/corpus/html/sentiment_afinn.html#:~:text=The%20AFINN%20lexicon%20is%20a,but%20they%20are%20excluded%20here)  
