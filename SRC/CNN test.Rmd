@@ -1,0 +1,73 @@
+---
+title: "CNN sample"
+author: "Nina Jannatifar"
+date: "2023-03-21"
+output: html_document
+---
+```{r}
+library(tidyverse)
+library(keras)
+library(tensorflow)
+library(reticulate)
+library(magick)
+```
+
+```{r}
+install_tensorflow(extra_packages="pillow")
+install_keras()
+```
+
+```{r}
+Mild <- list.files("dataset/MildDemented", 
+                       full.names = TRUE)
+MildDF <- data.frame(Mild, 2)
+
+Mod <- list.files("dataset/ModerateDemented", 
+                       full.names = TRUE)
+ModDF <- data.frame(Mod, 3)
+
+VMild <- list.files("dataset/VeryMildDemented", 
+                       full.names = TRUE)
+VMildDF <- data.frame(VMild, 1)
+
+Non <- list.files("dataset/NonDemented", 
+                       full.names = TRUE)
+NonDF <- data.frame(Non, 0)
+FullDF <- c(NonDF, VMildDF, MildDF, ModDF)
+```
+
+```{r}
+set.seed(1989)
+sample <- sample(c(TRUE, FALSE), nrow(NonDF), replace=TRUE, prob=c(0.7,0.3))
+trainNon <- NonDF[sample, ]
+testNon <- NonDF[!sample, ]
+colnames(trainNon)[1] = "file"
+colnames(trainNon)[2] = "num"
+colnames(testNon)[1] = "file"
+colnames(testNon)[2] = "num"
+
+trainVMild <- VMildDF[sample, ]
+testVMild <- VMildDF[!sample, ]
+colnames(trainVMild)[1] = "file"
+colnames(trainVMild)[2] = "num"
+colnames(testVMild)[1] = "file"
+colnames(testVMild)[2] = "num"
+
+trainMild  <- MildDF[sample, ]
+testMild  <- MildDF[!sample, ]
+colnames(trainMild)[1] = "file"
+colnames(trainMild)[2] = "num"
+colnames(testMild)[1] = "file"
+colnames(testMild)[2] = "num"
+
+trainMod  <- ModDF[sample, ]
+testMod  <- ModDF[!sample, ]
+colnames(trainMod)[1] = "file"
+colnames(trainMod)[2] = "num"
+colnames(testMod)[1] = "file"
+colnames(testMod)[2] = "num"
+
+trainData <- rbind(trainNon, trainVMild, trainMild, trainMod)
+testData <- rbind(testNon, testVMild, testMild, testMod)
+```
+
